@@ -1,0 +1,196 @@
+/* Atlas Palette System v2
+   Una paleta no es un tinte global: es una composición de roles cromáticos.
+   Esta capa se carga al final para neutralizar las reglas heredadas y dar a cada
+   superficie, etiqueta, estado y gráfica un color propio pero armónico.
+*/
+:root[data-atlas-color] {
+  --c-canvas: #101519; --c-canvas-deep: #080d10;
+  --c-surface: #182126; --c-surface-2: #202d32; --c-surface-3: #2b3d43;
+  --c-panel: #1a2b30; --c-panel-alt: #263a40; --c-chip: #314951;
+  --c-fg: #f4f7f4; --c-dim: #c5d1cc; --c-mute: #8fa5a0;
+  --c-acento: #72dfbd; --c-acento-alto: #b9f2dc; --c-acento-hondo: #287d72;
+  --c-alt: #e8bf70; --c-win: #82d99c; --c-loss: #f2867d; --c-info: #78c9ef;
+  --c-violet: #b8a0ee; --c-line: #d8f6ef35; --c-line-strong: #d8f6ef70;
+  --c-acento-linea: #72dfbd88; --grad-surface: linear-gradient(145deg,var(--c-panel-alt),var(--c-surface));
+  --grad-acento: linear-gradient(135deg,var(--c-acento-alto),var(--c-acento) 55%,var(--c-alt));
+  --grad-acento-suave: linear-gradient(135deg,color-mix(in srgb,var(--c-acento) 22%,transparent),color-mix(in srgb,var(--c-alt) 13%,transparent));
+  --grad-hairline: linear-gradient(90deg,transparent,var(--c-acento),var(--c-alt),transparent);
+  --chart-1: var(--c-acento); --chart-2: var(--c-alt); --chart-3: var(--c-info); --chart-4: var(--c-violet); --chart-5: var(--c-win);
+  --btn-fg: #071714; --shadow-card: 0 16px 34px -22px var(--c-canvas-deep);
+}
+:root[data-atlas-theme][data-atlas-color="a"] { --c-canvas:#0d1718;--c-canvas-deep:#081011;--c-surface:#152426;--c-surface-2:#1d3335;--c-surface-3:#294548;--c-panel:#172c31;--c-panel-alt:#234149;--c-chip:#31545a;--c-acento:#6dd6bd;--c-acento-alto:#b0f0dc;--c-acento-hondo:#278b7a;--c-alt:#efb36b;--c-win:#83db9e;--c-loss:#f07d78;--c-info:#78c9ef;--c-violet:#b7a0ee;--c-line:#d8f6ef38;--c-line-strong:#d8f6ef75;--c-acento-linea:#6dd6bd88;--grad-surface:linear-gradient(145deg,#234149,#152426);--grad-acento:linear-gradient(135deg,#b0f0dc,#6dd6bd 52%,#efb36b);--chart-1:#6dd6bd;--chart-2:#efb36b;--chart-3:#78c9ef;--chart-4:#b7a0ee;--chart-5:#83db9e}
+:root[data-atlas-theme][data-atlas-color="b"] { --c-canvas:#172331;--c-canvas-deep:#0b121b;--c-surface:#223247;--c-surface-2:#2d435a;--c-surface-3:#415b73;--c-panel:#233b52;--c-panel-alt:#38566b;--c-chip:#506d80;--c-acento:#8ed1f2;--c-acento-alto:#d8f2ff;--c-acento-hondo:#447e9f;--c-alt:#e7c878;--c-win:#8edaaa;--c-loss:#ed918b;--c-info:#b8d4ff;--c-violet:#b9a7e8;--c-line:#e5f4ff40;--c-line-strong:#e5f4ff78;--c-acento-linea:#8ed1f288;--grad-surface:linear-gradient(145deg,#38566b,#223247);--grad-acento:linear-gradient(135deg,#d8f2ff,#8ed1f2 55%,#e7c878);--chart-1:#8ed1f2;--chart-2:#e7c878;--chart-3:#b8d4ff;--chart-4:#b9a7e8;--chart-5:#8edaaa;--btn-fg:#10202b}
+:root[data-atlas-theme][data-atlas-color="c"] { --c-canvas:#21151e;--c-canvas-deep:#120b12;--c-surface:#30202d;--c-surface-2:#432b3e;--c-surface-3:#604158;--c-panel:#382637;--c-panel-alt:#553a50;--c-chip:#704d65;--c-acento:#ff9fbd;--c-acento-alto:#ffd0dc;--c-acento-hondo:#bc537b;--c-alt:#f4c66e;--c-win:#88dcb4;--c-loss:#ff827e;--c-info:#8ec7ed;--c-violet:#c6a7ed;--c-line:#ffe9f145;--c-line-strong:#ffe9f180;--c-acento-linea:#ff9fbd88;--grad-surface:linear-gradient(145deg,#553a50,#30202d);--grad-acento:linear-gradient(135deg,#ffd0dc,#ff9fbd 54%,#f4c66e);--chart-1:#ff9fbd;--chart-2:#f4c66e;--chart-3:#8ec7ed;--chart-4:#c6a7ed;--chart-5:#88dcb4;--btn-fg:#2a1020}
+:root[data-atlas-theme][data-atlas-color="d"] { --c-canvas:#10231f;--c-canvas-deep:#071511;--c-surface:#18332c;--c-surface-2:#23473b;--c-surface-3:#346253;--c-panel:#1d3e35;--c-panel-alt:#2d5548;--c-chip:#46715f;--c-acento:#d98b52;--c-acento-alto:#f0ad72;--c-acento-hondo:#8d4d2c;--c-alt:#b8d77d;--c-win:#b8d77d;--c-loss:#f18779;--c-info:#79c5d4;--c-violet:#b9a1e0;--c-line:#dff6df42;--c-line-strong:#dff6df7c;--c-acento-linea:#d98b5288;--grad-surface:linear-gradient(145deg,#2d5548,#18332c);--grad-acento:linear-gradient(135deg,#f0ad72,#d98b52 55%,#b8d77d);--chart-1:#d98b52;--chart-2:#b8d77d;--chart-3:#79c5d4;--chart-4:#b9a1e0;--chart-5:#8ed3a8;--btn-fg:#172b22}
+:root[data-atlas-theme][data-atlas-color="e"] { --c-canvas:#171a22;--c-canvas-deep:#0c0e14;--c-surface:#242a35;--c-surface-2:#323b4b;--c-surface-3:#4c5969;--c-panel:#2a3342;--c-panel-alt:#414f60;--c-chip:#5a6977;--c-acento:#f06b67;--c-acento-alto:#ffaaa0;--c-acento-hondo:#9d3f4f;--c-alt:#e9bf69;--c-win:#8ed7aa;--c-loss:#ff8c7c;--c-info:#78c7ed;--c-violet:#b7a4e7;--c-line:#f4f7ff42;--c-line-strong:#f4f7ff7c;--c-acento-linea:#f06b6788;--grad-surface:linear-gradient(145deg,#414f60,#242a35);--grad-acento:linear-gradient(135deg,#ffaaa0,#f06b67 55%,#e9bf69);--chart-1:#f06b67;--chart-2:#e9bf69;--chart-3:#78c7ed;--chart-4:#b7a4e7;--chart-5:#8ed7aa;--btn-fg:#291519}
+:root[data-atlas-theme][data-atlas-color="f"] { --c-canvas:#17152a;--c-canvas-deep:#0c091b;--c-surface:#24203f;--c-surface-2:#332c58;--c-surface-3:#4b4175;--c-panel:#2b2550;--c-panel-alt:#41376a;--c-chip:#5c4e86;--c-acento:#b996ff;--c-acento-alto:#d6bcff;--c-acento-hondo:#6e4ec0;--c-alt:#73d8d2;--c-win:#8be1b9;--c-loss:#ff8fae;--c-info:#7fc8ff;--c-violet:#d6bcff;--c-line:#eee7ff42;--c-line-strong:#eee7ff7c;--c-acento-linea:#b996ff88;--grad-surface:linear-gradient(145deg,#41376a,#24203f);--grad-acento:linear-gradient(135deg,#d6bcff,#b996ff 55%,#73d8d2);--chart-1:#b996ff;--chart-2:#73d8d2;--chart-3:#7fc8ff;--chart-4:#ff9fbd;--chart-5:#8be1b9;--btn-fg:#211942}
+:root[data-atlas-theme][data-atlas-color="g"] { --c-canvas:#30231f;--c-canvas-deep:#1d100b;--c-surface:#44312a;--c-surface-2:#5b4034;--c-surface-3:#795747;--c-panel:#4c372f;--c-panel-alt:#6b4b3c;--c-chip:#88664d;--c-acento:#e39a62;--c-acento-alto:#ffc58f;--c-acento-hondo:#985239;--c-alt:#e8d18b;--c-win:#b6d889;--c-loss:#ff9c83;--c-info:#80c6d0;--c-violet:#c1a2dd;--c-line:#ffe2bd44;--c-line-strong:#ffe2bd7c;--c-acento-linea:#e39a6288;--grad-surface:linear-gradient(145deg,#6b4b3c,#44312a);--grad-acento:linear-gradient(135deg,#ffc58f,#e39a62 55%,#e8d18b);--chart-1:#e39a62;--chart-2:#e8d18b;--chart-3:#80c6d0;--chart-4:#c1a2dd;--chart-5:#b6d889;--btn-fg:#382018}
+:root[data-atlas-theme][data-atlas-color="h"] { --c-canvas:#121a2c;--c-canvas-deep:#080d18;--c-surface:#1b2942;--c-surface-2:#283b5e;--c-surface-3:#405c88;--c-panel:#202f4d;--c-panel-alt:#385379;--c-chip:#4f6d98;--c-acento:#f2b84b;--c-acento-alto:#ffe09a;--c-acento-hondo:#a36b18;--c-alt:#73d6dc;--c-win:#88dda9;--c-loss:#ff817e;--c-info:#86bdf4;--c-violet:#bca6e8;--c-line:#e5f0ff43;--c-line-strong:#e5f0ff7d;--c-acento-linea:#f2b84b88;--grad-surface:linear-gradient(145deg,#385379,#1b2942);--grad-acento:linear-gradient(135deg,#ffe09a,#f2b84b 55%,#73d6dc);--chart-1:#f2b84b;--chart-2:#73d6dc;--chart-3:#86bdf4;--chart-4:#bca6e8;--chart-5:#88dda9;--btn-fg:#1d1c17}
+:root[data-atlas-theme][data-atlas-color="i"] { --c-canvas:#20151b;--c-canvas-deep:#11090e;--c-surface:#32202b;--c-surface-2:#493044;--c-surface-3:#70485f;--c-panel:#3b2638;--c-panel-alt:#604056;--c-chip:#80566d;--c-acento:#76d1bc;--c-acento-alto:#b4f0dd;--c-acento-hondo:#317f75;--c-alt:#e9868e;--c-win:#83db9e;--c-loss:#ff9a73;--c-info:#86c7e8;--c-violet:#b8a3e5;--c-line:#ffe7ee45;--c-line-strong:#ffe7ee7d;--c-acento-linea:#76d1bc88;--grad-surface:linear-gradient(145deg,#604056,#32202b);--grad-acento:linear-gradient(135deg,#b4f0dd,#76d1bc 55%,#e9868e);--chart-1:#76d1bc;--chart-2:#e9868e;--chart-3:#86c7e8;--chart-4:#b8a3e5;--chart-5:#83db9e;--btn-fg:#13241f}
+:root[data-atlas-theme][data-atlas-color="j"] { --c-canvas:#202328;--c-canvas-deep:#101216;--c-surface:#30353d;--c-surface-2:#424a55;--c-surface-3:#5e6975;--c-panel:#373e47;--c-panel-alt:#535d68;--c-chip:#697680;--c-acento:#d6e36b;--c-acento-alto:#f0f6a6;--c-acento-hondo:#849335;--c-alt:#e79b68;--c-win:#8cd3a7;--c-loss:#ff827c;--c-info:#7fc4e4;--c-violet:#b6a5df;--c-line:#edf5f344;--c-line-strong:#edf5f37c;--c-acento-linea:#d6e36b88;--grad-surface:linear-gradient(145deg,#535d68,#30353d);--grad-acento:linear-gradient(135deg,#f0f6a6,#d6e36b 55%,#e79b68);--chart-1:#d6e36b;--chart-2:#e79b68;--chart-3:#7fc4e4;--chart-4:#b6a5df;--chart-5:#8cd3a7;--btn-fg:#202719}
+
+/* Palette variables intentionally outrank theme token declarations. */
+/* Aplicación de roles: los temas conservan su geometría, las paletas cambian la atmósfera completa. */
+:root[data-atlas-color] body,:root[data-atlas-color] .atlas,:root[data-atlas-color] .atlas-module-frame{background:var(--c-canvas)!important;color:var(--c-fg)!important}
+:root[data-atlas-color] .atlas-module-frame .card,:root[data-atlas-color] .atlas-module-frame .bg-surface{background:var(--c-surface)!important;border-color:var(--c-line)!important;color:var(--c-fg)!important}
+:root[data-atlas-color] .atlas-module-frame .bg-surface-2{background:var(--c-surface-2)!important}.atlas-module-frame .bg-surface-3{background:var(--c-surface-3)!important}
+:root[data-atlas-color] input,:root[data-atlas-color] select,:root[data-atlas-color] textarea{background:var(--c-panel)!important;color:var(--c-fg)!important;border-color:var(--c-line)!important}
+:root[data-atlas-color] nav{background:var(--c-surface)!important;border-color:var(--c-line)!important;color:var(--c-fg)!important}
+:root[data-atlas-color] .atlas-module-banner,:root[data-atlas-color] .atlas-global-theme{background:var(--grad-surface)!important;color:var(--c-fg)!important;border-color:var(--c-line)!important}
+:root[data-atlas-color] .atlas-command,:root[data-atlas-color] .atlas-metrics,:root[data-atlas-color] .atlas-life,:root[data-atlas-color] .atlas-quick{background:var(--c-panel)!important;border-color:var(--c-line)!important}
+:root[data-atlas-color] .atlas-metric{background:linear-gradient(145deg,var(--c-surface-2),var(--c-surface-3))!important;border-color:var(--c-line)!important;color:var(--c-fg)!important}
+:root[data-atlas-color] .life-card{background:linear-gradient(145deg,var(--c-surface-2),color-mix(in srgb,var(--card-tone,var(--c-alt)) 18%,var(--c-surface-3)))!important;border-color:var(--c-line)!important;color:var(--c-fg)!important}
+:root[data-atlas-color] .life-card.debt{--card-tone:var(--c-loss)}:root[data-atlas-color] .life-card.home{--card-tone:var(--c-win)}:root[data-atlas-color] .life-card.signal{--card-tone:var(--c-alt)}:root[data-atlas-color] .life-card.routine{--card-tone:var(--c-violet)}
+:root[data-atlas-color] .marea-hero{background:var(--grad-surface)!important;border-color:var(--c-line)!important}:root[data-atlas-color] .marea-water{background:color-mix(in srgb,var(--c-info) 10%,var(--c-surface))!important}:root[data-atlas-color] .marea-wave{background:color-mix(in srgb,var(--c-acento) 20%,var(--c-panel-alt))!important;color:var(--c-acento-alto)!important}
+:root[data-atlas-color] .taller-hero{background:linear-gradient(135deg,var(--c-surface-3),var(--c-panel))!important;border-color:var(--c-alt)!important}:root[data-atlas-color] .taller-stamp{color:var(--c-alt)!important;border-color:var(--c-alt)!important}:root[data-atlas-color] .pulso-hero{background:linear-gradient(145deg,var(--c-surface),color-mix(in srgb,var(--c-violet) 22%,var(--c-panel)))!important;border-color:var(--c-acento-linea)!important}:root[data-atlas-color] .pulse-ring{border-color:var(--c-violet)!important;outline-color:color-mix(in srgb,var(--c-acento) 28%,transparent)!important;color:var(--c-acento-alto)!important}
+:root[data-atlas-color] .atlas-start{background:var(--grad-acento)!important;color:var(--btn-fg)!important}:root[data-atlas-color] .atlas-shift{background:var(--c-chip)!important;color:var(--c-fg)!important;border-color:var(--c-line)!important}
+:root[data-atlas-color] .chart-card,:root[data-atlas-color] .tips-open-operations,:root[data-atlas-color] .tip-analytics{background:var(--grad-surface)!important;border-color:var(--c-line)!important;color:var(--c-fg)!important}
+:root[data-atlas-color] .orbit-node{background:linear-gradient(145deg,var(--c-chip),var(--c-surface-2))!important;border-color:var(--chart-2)!important;color:var(--c-fg)!important}:root[data-atlas-color] .orbit-core{background:var(--chart-1)!important;color:var(--btn-fg)!important}:root[data-atlas-color] .wave-area{fill:var(--chart-1)!important}:root[data-atlas-color] .chart-axis{stroke:var(--c-line-strong)!important}
+:root[data-atlas-color] .text-fg{color:var(--c-fg)!important}:root[data-atlas-color] .text-mute{color:var(--c-mute)!important}:root[data-atlas-color] .text-dim{color:var(--c-dim)!important}:root[data-atlas-color] .text-acento,:root[data-atlas-color] .text-acento-alto{color:var(--c-acento-alto)!important}:root[data-atlas-color] .text-win{color:var(--c-win)!important}:root[data-atlas-color] .text-loss{color:var(--c-loss)!important}:root[data-atlas-color] .border-line{border-color:var(--c-line)!important}
+:root[data-atlas-color] .atlas-section-title,:root[data-atlas-color] .atlas-kicker{color:var(--c-acento-alto)!important}:root[data-atlas-color] .atlas-section-title small,:root[data-atlas-color] .atlas-header p,:root[data-atlas-color] .atlas-footer{color:var(--c-mute)!important}
+:root[data-atlas-color] .atlas-metric svg{color:var(--chart-1)!important}:root[data-atlas-color] .tone-orange svg,:root[data-atlas-color] .tone-orange strong{color:var(--chart-2)!important}:root[data-atlas-color] .tone-violet svg,:root[data-atlas-color] .tone-violet strong{color:var(--chart-4)!important}:root[data-atlas-color] .tone-blue svg,:root[data-atlas-color] .tone-blue strong{color:var(--chart-3)!important}:root[data-atlas-color] .tone-red svg,:root[data-atlas-color] .tone-red strong{color:var(--c-loss)!important}
+:root[data-atlas-color] .atlas-theme-options button,:root[data-atlas-color] .atlas-color-picker button{border-color:var(--c-line)!important}:root[data-atlas-color] .atlas-theme-options button.selected{background:var(--grad-acento-suave)!important;border-color:var(--c-acento)!important;color:var(--c-fg)!important}:root[data-atlas-color] .atlas-color-picker button.selected{outline-color:var(--c-fg)!important}
+:root[data-atlas-color] .all-winners{background:color-mix(in srgb,var(--chart-2) 15%,var(--c-surface))!important;border-color:var(--chart-2)!important;color:var(--c-fg)!important}:root[data-atlas-color] .all-winners strong{color:var(--chart-2)!important}
+.atlas-color-picker .color-a{background:linear-gradient(135deg,#6dd6bd,#efb36b)!important}.atlas-color-picker .color-b{background:linear-gradient(135deg,#8ed1f2,#e7c878)!important}.atlas-color-picker .color-c{background:linear-gradient(135deg,#ff9fbd,#f4c66e)!important}.atlas-color-picker .color-d{background:linear-gradient(135deg,#d98b52,#b8d77d)!important}.atlas-color-picker .color-e{background:linear-gradient(135deg,#f06b67,#e9bf69)!important}.atlas-color-picker .color-f{background:linear-gradient(135deg,#b996ff,#73d8d2)!important}.atlas-color-picker .color-g{background:linear-gradient(135deg,#e39a62,#e8d18b)!important}.atlas-color-picker .color-h{background:linear-gradient(135deg,#f2b84b,#73d6dc)!important}.atlas-color-picker .color-i{background:linear-gradient(135deg,#76d1bc,#e9868e)!important}.atlas-color-picker .color-j{background:linear-gradient(135deg,#d6e36b,#e79b68)!important}
+/* Corrección de alias antiguo usado por una hoja heredada. */
+:root[data-atlas-color] { --c-acento-high: var(--c-acento-alto); }
+
+/* Compatibility cleanup: theme geometry remains, palette owns every painted surface. */
+:root[data-atlas-color] .atlas-module-frame .app-screen [class*="rounded-"],
+:root[data-atlas-color] .atlas-module-frame .app-screen .card,
+:root[data-atlas-color] .atlas-module-frame .app-screen section,
+:root[data-atlas-color] .atlas-module-frame .app-screen article {
+  background: var(--c-surface) !important;
+  color: var(--c-fg) !important;
+  border-color: var(--c-line) !important;
+  box-shadow: var(--shadow-card) !important;
+}
+:root[data-atlas-color] .atlas-module-frame .app-screen [class*="bg-surface-2"],
+:root[data-atlas-color] .atlas-module-frame .app-screen [class*="bg-surface-3"] {
+  background: var(--c-surface-2) !important;
+}
+:root[data-atlas-color] .atlas-module-frame .app-screen input,
+:root[data-atlas-color] .atlas-module-frame .app-screen select,
+:root[data-atlas-color] .atlas-module-frame .app-screen textarea {
+  background: var(--c-panel-alt) !important;
+  color: var(--c-fg) !important;
+  border-color: var(--c-line-strong) !important;
+}
+:root[data-atlas-color] .atlas-module-frame .app-screen button {
+  color: var(--c-fg);
+  border-color: var(--c-line);
+}
+:root[data-atlas-color] .atlas-module-frame .app-screen button.selected,
+:root[data-atlas-color] .atlas-module-frame .app-screen button.active,
+:root[data-atlas-color] .atlas-module-frame .app-screen button.on {
+  background: var(--grad-acento-suave) !important;
+  color: var(--c-acento-alto) !important;
+  border-color: var(--c-acento-linea) !important;
+}
+:root[data-atlas-color] .editorial-tip-intro,
+:root[data-atlas-color] .tips-form,
+:root[data-atlas-color] .tips-scoreboard,
+:root[data-atlas-color] .tips-recent,
+:root[data-atlas-color] .marea-tip-intro,
+:root[data-atlas-color] .pulso-tip-top,
+:root[data-atlas-color] .pulso-stat,
+:root[data-atlas-color] .tips-analytics,
+:root[data-atlas-color] .chart-card,
+:root[data-atlas-color] .balance-kpi,
+:root[data-atlas-color] .balance-graph {
+  background: var(--grad-surface) !important;
+  color: var(--c-fg) !important;
+  border-color: var(--c-line) !important;
+  box-shadow: var(--shadow-card) !important;
+}
+:root[data-atlas-color] .tips-leader,
+:root[data-atlas-color] .tips-people button,
+:root[data-atlas-color] .tips-result button,
+:root[data-atlas-color] .all-winners {
+  background: color-mix(in srgb, var(--chart-2) 14%, var(--c-surface-2)) !important;
+  color: var(--c-fg) !important;
+  border-color: color-mix(in srgb, var(--chart-2) 45%, var(--c-line)) !important;
+}
+:root[data-atlas-color] .tips-form-head strong,
+:root[data-atlas-color] .tips-leader svg,
+:root[data-atlas-color] .tips-leader b,
+:root[data-atlas-color] .positive { color: var(--chart-1) !important; }
+:root[data-atlas-color] .negative { color: var(--c-loss) !important; }
+:root[data-atlas-color] .atlas-module-frame .app-screen svg { stroke: currentColor; }
+:root[data-atlas-color] .atlas-module-frame .app-screen .text-fg { color: var(--c-fg) !important; }
+:root[data-atlas-color] .atlas-module-frame .app-screen .text-mute { color: var(--c-mute) !important; }
+:root[data-atlas-color] .atlas-module-frame .app-screen .text-dim { color: var(--c-dim) !important; }
+:root[data-atlas-color] .atlas-module-frame .app-screen .text-acento,
+:root[data-atlas-color] .atlas-module-frame .app-screen .text-acento-alto { color: var(--c-acento-alto) !important; }
+:root[data-atlas-color] .atlas-module-frame .app-screen .text-win { color: var(--c-win) !important; }
+:root[data-atlas-color] .atlas-module-frame .app-screen .text-loss { color: var(--c-loss) !important; }
+:root[data-atlas-color] .atlas-module-frame .app-screen .border-line { border-color: var(--c-line) !important; }
+:root[data-atlas-color] .atlas-module-frame .app-screen .bg-acento { background: var(--c-acento) !important; }
+:root[data-atlas-color] .atlas-module-frame .app-screen .divide-line > * { border-color: var(--c-line) !important; }
+:root[data-atlas-color] .atlas-module-frame .app-screen .atlas-color-picker button { box-shadow: none !important; }
+
+/* Final runtime overrides for theme-specific fixed paints. */
+:root[data-atlas-theme][data-atlas-color] body,
+:root[data-atlas-theme][data-atlas-color] body:has(.atlas) { background: var(--c-canvas) !important; color: var(--c-fg) !important; }
+:root[data-atlas-theme][data-atlas-color] .atlas,
+:root[data-atlas-theme][data-atlas-color] .atlas-module-frame { background: var(--c-canvas) !important; color: var(--c-fg) !important; }
+:root[data-atlas-theme][data-atlas-color] .editorial-hero,
+:root[data-atlas-theme][data-atlas-color] .atlas-editorial .atlas-command,
+:root[data-atlas-theme][data-atlas-color] .atlas-editorial .atlas-metrics,
+:root[data-atlas-theme][data-atlas-color] .atlas-editorial .atlas-life,
+:root[data-atlas-theme][data-atlas-color] .atlas-editorial .atlas-quick { background: var(--grad-surface) !important; color: var(--c-fg) !important; border-color: var(--c-line) !important; box-shadow: var(--shadow-card) !important; }
+:root[data-atlas-theme][data-atlas-color] .editorial-hero-mark,
+:root[data-atlas-theme][data-atlas-color] .atlas-editorial .atlas-shift { background: var(--c-panel-alt) !important; color: var(--c-fg) !important; }
+:root[data-atlas-theme][data-atlas-color] .editorial-hero-copy strong,
+:root[data-atlas-theme][data-atlas-color] .atlas-editorial .atlas-metric svg,
+:root[data-atlas-theme][data-atlas-color] .atlas-editorial .life-card svg { color: var(--chart-1) !important; }
+:root[data-atlas-theme][data-atlas-color] .atlas-editorial .atlas-metric,
+:root[data-atlas-theme][data-atlas-color] .atlas-editorial .life-card { background: var(--c-surface-2) !important; color: var(--c-fg) !important; border-color: var(--c-line) !important; }
+
+
+/* FINAL PALETTE VARIABLE PRIORITY */
+:root[data-atlas-theme][data-atlas-color="a"]{--c-canvas:#0d1718 !important;--c-canvas-deep:#081011 !important;--c-surface:#152426 !important;--c-surface-2:#1d3335 !important;--c-surface-3:#294548 !important;--c-panel:#172c31 !important;--c-panel-alt:#234149 !important;--c-chip:#31545a !important;--c-acento:#6dd6bd !important;--c-acento-alto:#b0f0dc !important;--c-acento-hondo:#278b7a !important;--c-alt:#efb36b !important;--c-win:#83db9e !important;--c-loss:#f07d78 !important;--c-info:#78c9ef !important;--c-violet:#b7a0ee !important;--c-line:#d8f6ef38 !important;--c-line-strong:#d8f6ef75 !important;--c-acento-linea:#6dd6bd88 !important;--grad-surface:linear-gradient(145deg,#234149,#152426) !important;--grad-acento:linear-gradient(135deg,#b0f0dc,#6dd6bd 52%,#efb36b) !important;--chart-1:#6dd6bd !important;--chart-2:#efb36b !important;--chart-3:#78c9ef !important;--chart-4:#b7a0ee !important;--chart-5:#83db9e !important;}
+:root[data-atlas-theme][data-atlas-color="b"]{--c-canvas:#172331 !important;--c-canvas-deep:#0b121b !important;--c-surface:#223247 !important;--c-surface-2:#2d435a !important;--c-surface-3:#415b73 !important;--c-panel:#233b52 !important;--c-panel-alt:#38566b !important;--c-chip:#506d80 !important;--c-acento:#8ed1f2 !important;--c-acento-alto:#d8f2ff !important;--c-acento-hondo:#447e9f !important;--c-alt:#e7c878 !important;--c-win:#8edaaa !important;--c-loss:#ed918b !important;--c-info:#b8d4ff !important;--c-violet:#b9a7e8 !important;--c-line:#e5f4ff40 !important;--c-line-strong:#e5f4ff78 !important;--c-acento-linea:#8ed1f288 !important;--grad-surface:linear-gradient(145deg,#38566b,#223247) !important;--grad-acento:linear-gradient(135deg,#d8f2ff,#8ed1f2 55%,#e7c878) !important;--chart-1:#8ed1f2 !important;--chart-2:#e7c878 !important;--chart-3:#b8d4ff !important;--chart-4:#b9a7e8 !important;--chart-5:#8edaaa !important;--btn-fg:#10202b !important;}
+:root[data-atlas-theme][data-atlas-color="c"]{--c-canvas:#21151e !important;--c-canvas-deep:#120b12 !important;--c-surface:#30202d !important;--c-surface-2:#432b3e !important;--c-surface-3:#604158 !important;--c-panel:#382637 !important;--c-panel-alt:#553a50 !important;--c-chip:#704d65 !important;--c-acento:#ff9fbd !important;--c-acento-alto:#ffd0dc !important;--c-acento-hondo:#bc537b !important;--c-alt:#f4c66e !important;--c-win:#88dcb4 !important;--c-loss:#ff827e !important;--c-info:#8ec7ed !important;--c-violet:#c6a7ed !important;--c-line:#ffe9f145 !important;--c-line-strong:#ffe9f180 !important;--c-acento-linea:#ff9fbd88 !important;--grad-surface:linear-gradient(145deg,#553a50,#30202d) !important;--grad-acento:linear-gradient(135deg,#ffd0dc,#ff9fbd 54%,#f4c66e) !important;--chart-1:#ff9fbd !important;--chart-2:#f4c66e !important;--chart-3:#8ec7ed !important;--chart-4:#c6a7ed !important;--chart-5:#88dcb4 !important;--btn-fg:#2a1020 !important;}
+:root[data-atlas-theme][data-atlas-color="d"]{--c-canvas:#10231f !important;--c-canvas-deep:#071511 !important;--c-surface:#18332c !important;--c-surface-2:#23473b !important;--c-surface-3:#346253 !important;--c-panel:#1d3e35 !important;--c-panel-alt:#2d5548 !important;--c-chip:#46715f !important;--c-acento:#d98b52 !important;--c-acento-alto:#f0ad72 !important;--c-acento-hondo:#8d4d2c !important;--c-alt:#b8d77d !important;--c-win:#b8d77d !important;--c-loss:#f18779 !important;--c-info:#79c5d4 !important;--c-violet:#b9a1e0 !important;--c-line:#dff6df42 !important;--c-line-strong:#dff6df7c !important;--c-acento-linea:#d98b5288 !important;--grad-surface:linear-gradient(145deg,#2d5548,#18332c) !important;--grad-acento:linear-gradient(135deg,#f0ad72,#d98b52 55%,#b8d77d) !important;--chart-1:#d98b52 !important;--chart-2:#b8d77d !important;--chart-3:#79c5d4 !important;--chart-4:#b9a1e0 !important;--chart-5:#8ed3a8 !important;--btn-fg:#172b22 !important;}
+:root[data-atlas-theme][data-atlas-color="e"]{--c-canvas:#171a22 !important;--c-canvas-deep:#0c0e14 !important;--c-surface:#242a35 !important;--c-surface-2:#323b4b !important;--c-surface-3:#4c5969 !important;--c-panel:#2a3342 !important;--c-panel-alt:#414f60 !important;--c-chip:#5a6977 !important;--c-acento:#f06b67 !important;--c-acento-alto:#ffaaa0 !important;--c-acento-hondo:#9d3f4f !important;--c-alt:#e9bf69 !important;--c-win:#8ed7aa !important;--c-loss:#ff8c7c !important;--c-info:#78c7ed !important;--c-violet:#b7a4e7 !important;--c-line:#f4f7ff42 !important;--c-line-strong:#f4f7ff7c !important;--c-acento-linea:#f06b6788 !important;--grad-surface:linear-gradient(145deg,#414f60,#242a35) !important;--grad-acento:linear-gradient(135deg,#ffaaa0,#f06b67 55%,#e9bf69) !important;--chart-1:#f06b67 !important;--chart-2:#e9bf69 !important;--chart-3:#78c7ed !important;--chart-4:#b7a4e7 !important;--chart-5:#8ed7aa !important;--btn-fg:#291519 !important;}
+:root[data-atlas-theme][data-atlas-color="f"]{--c-canvas:#17152a !important;--c-canvas-deep:#0c091b !important;--c-surface:#24203f !important;--c-surface-2:#332c58 !important;--c-surface-3:#4b4175 !important;--c-panel:#2b2550 !important;--c-panel-alt:#41376a !important;--c-chip:#5c4e86 !important;--c-acento:#b996ff !important;--c-acento-alto:#d6bcff !important;--c-acento-hondo:#6e4ec0 !important;--c-alt:#73d8d2 !important;--c-win:#8be1b9 !important;--c-loss:#ff8fae !important;--c-info:#7fc8ff !important;--c-violet:#d6bcff !important;--c-line:#eee7ff42 !important;--c-line-strong:#eee7ff7c !important;--c-acento-linea:#b996ff88 !important;--grad-surface:linear-gradient(145deg,#41376a,#24203f) !important;--grad-acento:linear-gradient(135deg,#d6bcff,#b996ff 55%,#73d8d2) !important;--chart-1:#b996ff !important;--chart-2:#73d8d2 !important;--chart-3:#7fc8ff !important;--chart-4:#ff9fbd !important;--chart-5:#8be1b9 !important;--btn-fg:#211942 !important;}
+:root[data-atlas-theme][data-atlas-color="g"]{--c-canvas:#30231f !important;--c-canvas-deep:#1d100b !important;--c-surface:#44312a !important;--c-surface-2:#5b4034 !important;--c-surface-3:#795747 !important;--c-panel:#4c372f !important;--c-panel-alt:#6b4b3c !important;--c-chip:#88664d !important;--c-acento:#e39a62 !important;--c-acento-alto:#ffc58f !important;--c-acento-hondo:#985239 !important;--c-alt:#e8d18b !important;--c-win:#b6d889 !important;--c-loss:#ff9c83 !important;--c-info:#80c6d0 !important;--c-violet:#c1a2dd !important;--c-line:#ffe2bd44 !important;--c-line-strong:#ffe2bd7c !important;--c-acento-linea:#e39a6288 !important;--grad-surface:linear-gradient(145deg,#6b4b3c,#44312a) !important;--grad-acento:linear-gradient(135deg,#ffc58f,#e39a62 55%,#e8d18b) !important;--chart-1:#e39a62 !important;--chart-2:#e8d18b !important;--chart-3:#80c6d0 !important;--chart-4:#c1a2dd !important;--chart-5:#b6d889 !important;--btn-fg:#382018 !important;}
+:root[data-atlas-theme][data-atlas-color="h"]{--c-canvas:#121a2c !important;--c-canvas-deep:#080d18 !important;--c-surface:#1b2942 !important;--c-surface-2:#283b5e !important;--c-surface-3:#405c88 !important;--c-panel:#202f4d !important;--c-panel-alt:#385379 !important;--c-chip:#4f6d98 !important;--c-acento:#f2b84b !important;--c-acento-alto:#ffe09a !important;--c-acento-hondo:#a36b18 !important;--c-alt:#73d6dc !important;--c-win:#88dda9 !important;--c-loss:#ff817e !important;--c-info:#86bdf4 !important;--c-violet:#bca6e8 !important;--c-line:#e5f0ff43 !important;--c-line-strong:#e5f0ff7d !important;--c-acento-linea:#f2b84b88 !important;--grad-surface:linear-gradient(145deg,#385379,#1b2942) !important;--grad-acento:linear-gradient(135deg,#ffe09a,#f2b84b 55%,#73d6dc) !important;--chart-1:#f2b84b !important;--chart-2:#73d6dc !important;--chart-3:#86bdf4 !important;--chart-4:#bca6e8 !important;--chart-5:#88dda9 !important;--btn-fg:#1d1c17 !important;}
+:root[data-atlas-theme][data-atlas-color="i"]{--c-canvas:#20151b !important;--c-canvas-deep:#11090e !important;--c-surface:#32202b !important;--c-surface-2:#493044 !important;--c-surface-3:#70485f !important;--c-panel:#3b2638 !important;--c-panel-alt:#604056 !important;--c-chip:#80566d !important;--c-acento:#76d1bc !important;--c-acento-alto:#b4f0dd !important;--c-acento-hondo:#317f75 !important;--c-alt:#e9868e !important;--c-win:#83db9e !important;--c-loss:#ff9a73 !important;--c-info:#86c7e8 !important;--c-violet:#b8a3e5 !important;--c-line:#ffe7ee45 !important;--c-line-strong:#ffe7ee7d !important;--c-acento-linea:#76d1bc88 !important;--grad-surface:linear-gradient(145deg,#604056,#32202b) !important;--grad-acento:linear-gradient(135deg,#b4f0dd,#76d1bc 55%,#e9868e) !important;--chart-1:#76d1bc !important;--chart-2:#e9868e !important;--chart-3:#86c7e8 !important;--chart-4:#b8a3e5 !important;--chart-5:#83db9e !important;--btn-fg:#13241f !important;}
+:root[data-atlas-theme][data-atlas-color="j"]{--c-canvas:#202328 !important;--c-canvas-deep:#101216 !important;--c-surface:#30353d !important;--c-surface-2:#424a55 !important;--c-surface-3:#5e6975 !important;--c-panel:#373e47 !important;--c-panel-alt:#535d68 !important;--c-chip:#697680 !important;--c-acento:#d6e36b !important;--c-acento-alto:#f0f6a6 !important;--c-acento-hondo:#849335 !important;--c-alt:#e79b68 !important;--c-win:#8cd3a7 !important;--c-loss:#ff827c !important;--c-info:#7fc4e4 !important;--c-violet:#b6a5df !important;--c-line:#edf5f344 !important;--c-line-strong:#edf5f37c !important;--c-acento-linea:#d6e36b88 !important;--grad-surface:linear-gradient(145deg,#535d68,#30353d) !important;--grad-acento:linear-gradient(135deg,#f0f6a6,#d6e36b 55%,#e79b68) !important;--chart-1:#d6e36b !important;--chart-2:#e79b68 !important;--chart-3:#7fc4e4 !important;--chart-4:#b6a5df !important;--chart-5:#8cd3a7 !important;--btn-fg:#202719 !important;}
+
+/* Onboarding is part of the app and must obey the selected palette too. */
+:root[data-atlas-theme][data-atlas-color] .atlas-onboarding,
+:root[data-atlas-theme][data-atlas-color] .onboarding-live-preview { background: var(--c-canvas) !important; color: var(--c-fg) !important; }
+:root[data-atlas-theme][data-atlas-color] .onboarding-editorial { border-color: var(--c-acento) !important; }
+:root[data-atlas-theme][data-atlas-color] .onboarding-editorial p,
+:root[data-atlas-theme][data-atlas-color] .onboarding-live-preview > small { color: var(--c-mute) !important; }
+:root[data-atlas-theme][data-atlas-color] .editorial-rule { background: var(--c-acento) !important; }
+:root[data-atlas-theme][data-atlas-color] .onboarding-themes button,
+:root[data-atlas-theme][data-atlas-color] .atlas-onboarding .atlas-global-theme { background: var(--grad-surface) !important; color: var(--c-fg) !important; border-color: var(--c-line) !important; }
+:root[data-atlas-theme][data-atlas-color] .onboarding-themes button.selected { background: var(--grad-acento-suave) !important; border-color: var(--c-acento) !important; }
+:root[data-atlas-theme][data-atlas-color] .onboarding-themes small { color: var(--c-mute) !important; }
+:root[data-atlas-theme][data-atlas-color] .onboarding-glyph,
+:root[data-atlas-theme][data-atlas-color] .preview-top { color: var(--chart-1) !important; }
+:root[data-atlas-theme][data-atlas-color] .preview-cards i { background: var(--c-surface-2) !important; border-color: var(--c-line) !important; }
+:root[data-atlas-theme][data-atlas-color] .onboarding-continue { background: var(--grad-acento) !important; color: var(--btn-fg) !important; border-color: var(--c-acento) !important; }
+
+/* Contrast roles were missing from the palette blocks; define them explicitly. */
+:root[data-atlas-theme][data-atlas-color="a"]{--c-fg:#edf8f5 !important;--c-mute:#9bb8b2 !important;--c-dim:#6f8c87 !important;--c-panel:#172c31 !important;}
+:root[data-atlas-theme][data-atlas-color="b"]{--c-fg:#10202b !important;--c-mute:#536a78 !important;--c-dim:#748996 !important;--c-panel:#d6e7f0 !important;}
+:root[data-atlas-theme][data-atlas-color="c"]{--c-fg:#eef3f6 !important;--c-mute:#a9bac7 !important;--c-dim:#7d93a2 !important;--c-panel:#283d4a !important;}
+:root[data-atlas-theme][data-atlas-color="d"]{--c-fg:#eaf6ed !important;--c-mute:#a8c2b1 !important;--c-dim:#789686 !important;--c-panel:#1d3e35 !important;}
+:root[data-atlas-theme][data-atlas-color="e"]{--c-fg:#f5f7ff !important;--c-mute:#b2bdcf !important;--c-dim:#808da1 !important;--c-panel:#2a3342 !important;}
+:root[data-atlas-theme][data-atlas-color="f"]{--c-fg:#f3efff !important;--c-mute:#c2b9dc !important;--c-dim:#8d82ad !important;--c-panel:#2b2550 !important;}
+:root[data-atlas-theme][data-atlas-color="g"]{--c-fg:#fff1e6 !important;--c-mute:#d4b5a0 !important;--c-dim:#9e7867 !important;--c-panel:#4c372f !important;}
+:root[data-atlas-theme][data-atlas-color="h"]{--c-fg:#f7f0dc !important;--c-mute:#c4c0a5 !important;--c-dim:#908b70 !important;--c-panel:#202f4d !important;}
+:root[data-atlas-theme][data-atlas-color="i"]{--c-fg:#fff0f3 !important;--c-mute:#d5b7c4 !important;--c-dim:#a17e8e !important;--c-panel:#3b2638 !important;}
+:root[data-atlas-theme][data-atlas-color="j"]{--c-fg:#eef3f0 !important;--c-mute:#b6c2bc !important;--c-dim:#84948c !important;--c-panel:#373e47 !important;}
+
+/* Named light palettes: white-gold and blue-silver are intentionally light, not recolored dark themes. */
+:root[data-atlas-theme][data-atlas-color="b"]{--c-canvas:#f6f1e7 !important;--c-canvas-deep:#e4d8c0 !important;--c-surface:#fffaf0 !important;--c-surface-2:#f0e5cf !important;--c-surface-3:#e3cfaa !important;--c-panel:#f8f3e9 !important;--c-panel-alt:#ead9b7 !important;--c-chip:#d5b06a !important;--c-acento:#b8860b !important;--c-acento-alto:#6d4c08 !important;--c-acento-hondo:#8d650c !important;--c-alt:#c49a44 !important;--c-win:#3f8b68 !important;--c-loss:#b94b43 !important;--c-info:#5b8fa8 !important;--c-violet:#9279ad !important;--c-line:#5b472622 !important;--c-line-strong:#5b472655 !important;--c-acento-linea:#b8860b88 !important;--grad-surface:linear-gradient(145deg,#fffaf0,#f0e5cf) !important;--grad-acento:linear-gradient(135deg,#f3d98b,#b8860b 55%,#c49a44) !important;--grad-acento-suave:linear-gradient(135deg,#b8860b22,#c49a4413) !important;--chart-1:#b8860b !important;--chart-2:#5b8fa8 !important;--chart-3:#7e9db0 !important;--chart-4:#9279ad !important;--chart-5:#3f8b68 !important;--c-fg:#2c271f !important;--c-mute:#756a58 !important;--c-dim:#9a8e79 !important;--btn-fg:#fffaf0 !important;}
+:root[data-atlas-theme][data-atlas-color="c"]{--c-canvas:#eaf1f5 !important;--c-canvas-deep:#cbd9e2 !important;--c-surface:#f7fafc !important;--c-surface-2:#dce7ee !important;--c-surface-3:#c6d6e0 !important;--c-panel:#eef4f7 !important;--c-panel-alt:#d0dfe7 !important;--c-chip:#a8bdca !important;--c-acento:#4d7ea8 !important;--c-acento-alto:#2f587a !important;--c-acento-hondo:#345b79 !important;--c-alt:#8faabd !important;--c-win:#4a8b70 !important;--c-loss:#bd5a58 !important;--c-info:#5b97bb !important;--c-violet:#8a83b5 !important;--c-line:#304b5b2e !important;--c-line-strong:#304b5b5e !important;--c-acento-linea:#4d7ea888 !important;--grad-surface:linear-gradient(145deg,#f7fafc,#dce7ee) !important;--grad-acento:linear-gradient(135deg,#b9d4e5,#4d7ea8 55%,#8faabd) !important;--grad-acento-suave:linear-gradient(135deg,#4d7ea822,#8faabd18) !important;--chart-1:#4d7ea8 !important;--chart-2:#8faabd !important;--chart-3:#6c9fba !important;--chart-4:#8a83b5 !important;--chart-5:#4a8b70 !important;--c-fg:#23313a !important;--c-mute:#617583 !important;--c-dim:#8da0ab !important;--btn-fg:#f7fafc !important;}
+:root[data-atlas-theme][data-atlas-color] body,
+:root[data-atlas-theme][data-atlas-color] body:has(.atlas),
+:root[data-atlas-theme][data-atlas-color] body:has(.atlas-onboarding){background:var(--c-canvas) !important;color:var(--c-fg) !important;}

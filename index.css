@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap');
+@import "tailwindcss";
+@import "./design/tokens.css";
+
+@theme inline {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Playfair Display', ui-serif, Georgia, serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --color-canvas: var(--c-canvas);
+  --color-canvas-deep: var(--c-canvas-deep);
+  --color-surface: var(--c-surface);
+  --color-surface-2: var(--c-surface-2);
+  --color-surface-3: var(--c-surface-3);
+  --color-fg: var(--c-fg);
+  --color-dim: var(--c-dim);
+  --color-mute: var(--c-mute);
+  --color-acento: var(--c-acento);
+  --color-acento-alto: var(--c-acento-alto);
+  --color-acento-hondo: var(--c-acento-hondo);
+  --color-alt: var(--c-alt);
+  --color-win: var(--c-win);
+  --color-loss: var(--c-loss);
+  --color-void: var(--c-void);
+  --color-line: var(--c-line);
+  --color-line-strong: var(--c-line-strong);
+  --color-acento-linea: var(--c-acento-linea);
+
+  --radius-card: var(--radius-card);
+  --radius-btn: var(--radius-btn);
+  --radius-pill: var(--radius-pill);
+}
+
+@keyframes dibujar { to { stroke-dashoffset: 0; } }
+@keyframes latir { 0%, 100% { transform: scale(1); opacity: .75; } 50% { transform: scale(1.45); opacity: 1; } }
