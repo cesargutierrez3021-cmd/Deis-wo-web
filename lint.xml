@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <!-- Recursos usados por nombre desde Capacitor/Android o generados por el template. -->
+    <issue id="UnusedResources" severity="ignore" />
+    <issue id="UnusedAttribute" severity="ignore" />
+    <issue id="MonochromeLauncherIcon" severity="ignore" />
+    <issue id="IconLocation" severity="ignore" />
+    <issue id="IconDuplicatesConfig" severity="ignore" />
+    <issue id="IconDipSize" severity="ignore" />
+    <!-- Compatibilidad con API 24 y configuración del template Capacitor. -->
+    <issue id="ObsoleteSdkInt" severity="ignore" />
+    <issue id="UnsafeProtectedBroadcastReceiver" severity="ignore" />
+    <issue id="ManifestOrder" severity="ignore" />
+    <issue id="GradleDependency" severity="ignore" />
+    <issue id="AndroidGradlePluginVersion" severity="ignore" />
+</lint>
